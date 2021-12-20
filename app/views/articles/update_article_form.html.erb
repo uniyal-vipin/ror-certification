@@ -1,0 +1,26 @@
+<br>
+<div class="card col-4 offset-4">
+  <h3 class="card-header bg-dark text-white mx-1">Update Article!</h3>
+  <div class="card-body">
+    <form action="/edit-article/<%= @article.id %>" method="post">
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label">Title</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="title" placeholder="Title">
+        </div>
+      </div>
+      <br>
+      <div class="form-group row">
+          <label for="hotels" class="col-md-3 col-form-label">Description</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="description" placeholder="Description">
+          </div>
+      </div>
+      <br>
+      <div class="form-group row">
+        <div class="col">
+          <button type="submit" class="btn btn-dark">Update</button>
+        </div>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+<script src="https://use.fontawesome.com/837bb55569.js"></script>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/bookings/generate">Second Quora</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+      <ul class="navbar-nav mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+      </ul>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <p class="nav-link"><%= current_user.email %></p>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Articles", articles_path, :method => :get, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tooltip" title="Profile" href="/profile/user"><i class="fa fa-lg fa-user-circle" aria-hidden="true"></i></a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/sign_in">Sign In</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
