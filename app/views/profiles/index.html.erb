@@ -1,0 +1,42 @@
+<br>
+<% if user_signed_in? %>
+    <div style="margin-left: 80px;">
+        Signed in as <span class="text-success fw-bold"><%= current_user.email %></span><br>
+        Your First Name: <span class="text-success fw-bold"><%= @profile.first_name  %></span><br>
+        Your Last Name: <span class="text-success fw-bold"><%= @profile.last_name  %></span><br>
+        Your Age: <span class="text-success fw-bold"><%= @profile.age  %></span><br>
+        Articles Written: <span class="text-success fw-bold"><%= current_user.articles&.count  %></span><br>
+        Your Profile Photo:<br> <% if @profile.profile_image? %><%= image_tag @profile.profile_image.url, style: 'height: 150px; width: auto;' %><% end %> <br>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row row-content">
+            <div class="col-3">
+                <b class="font-weight-bold">Click on edit if you want to edit your profile</b>
+            </div>
+            <div class="col-2">
+                <b class="font-weight-bold">Click on delete to delete your account</b>
+            </div>
+            <div class="col-2">
+                <b class="font-weight-bold">Show my articles</b>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-2 ms-5">
+                <a class="btn btn-secondary" href="/update-profile-form" role="button">Edit</a>
+            </div>
+            <div class="col-2 offset-1">
+                <%= button_to "Delete", user_registration_path, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+            </div>
+            <div class="col-2">
+                <a class="btn btn-primary" href="/articles" role="button">Show</a>
+            </div>
+            
+        </div>
+        <br><br><br>
+    </div>
+<% else %>
+    <h2>Please sign in first!</h2>
+<% end %>
+

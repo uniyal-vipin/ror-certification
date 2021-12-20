@@ -2,17 +2,9 @@
   <h3 class="card-header bg-dark text-white mx-1">Sign Up!</h3>
   <div class="card-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <%
-=begin%>
- <div class="field">
-        <%= f.label :name, class: "col-form-label" %><br />
-        <%= f.text_field :user_name, autofocus: true, autocomplete: "name", class: "form-control"%>
-      </div> 
-<%
-=end%>
-
+      <div class = "text-danger">
+        <%= render "devise/shared/error_messages", resource: resource %>
+      </div>
       <div class="field">
         <%= f.label :email, class: "col-form-label" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
